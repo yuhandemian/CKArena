@@ -11,17 +11,17 @@
 - CKA-EPIC-8: AI Study Documentation
 - CKA-EPIC-9: Deployment
 
-## First Candidate Tasks
-- Create React frontend project.
-- Create Spring Boot backend project.
-- Add local database with Docker Compose.
-- Build mobile main chat screen.
-- Create chat message API.
-- Draft player and champion schema.
-- Draft Naver News API integration plan.
-- Create AI implementation review template.
+## 첫 후보 Tasks
+- React frontend project 생성.
+- Spring Boot backend project 생성.
+- Docker Compose로 local database 추가.
+- 모바일 메인 채팅 화면 구현.
+- 채팅 메시지 API 생성.
+- 선수와 챔피언 schema 초안 작성.
+- Naver News API 연동 계획 작성.
+- AI implementation review template 작성.
 
-## Ticket Writing Template
+## Ticket 작성 Template
 ```text
 Title:
 User value:

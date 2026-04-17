@@ -1,6 +1,6 @@
 # React Notes
 
-## Topics
+## 공부할 주제
 - Feature-based folder structure.
 - Mobile-first layout.
 - API client design.
@@ -10,9 +10,9 @@
 - Component testing.
 
 ## Running Notes
-No notes yet.
+아직 기록 없음.
 
-## Questions
-- Which state should live in server cache versus local component state?
-- How should real-time chat updates be represented in UI state?
-- What mobile layout patterns fit LCK fan discussion best?
+## 질문
+- 어떤 상태를 server cache에 두고, 어떤 상태를 local component state에 둘까?
+- 실시간 채팅 업데이트는 UI state에서 어떻게 표현하는 게 좋을까?
+- LCK 팬 대화에 어울리는 모바일 레이아웃 패턴은 무엇일까?

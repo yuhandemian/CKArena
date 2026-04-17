@@ -1,7 +1,7 @@
 # Prompt Log
 
-## Purpose
-Track useful prompts and outcomes so the project improves its AI workflow over time.
+## 목적
+유용했던 prompt와 결과를 기록해 AI 작업 방식 자체를 개선한다.
 
 ## Template
 ```text
@@ -15,4 +15,4 @@ What to improve:
 ```
 
 ## Entries
-No entries yet.
+아직 기록 없음.

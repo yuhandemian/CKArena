@@ -1,22 +1,22 @@
 # AI Workflow
 
-## Purpose
-This project uses AI agents as development partners while keeping the human developer responsible for decisions, understanding, testing, and final quality.
+## 목적
+이 프로젝트는 AI agent를 개발 파트너로 사용하지만, 최종 결정과 이해, 테스트, 품질 책임은 개발자가 가진다.
 
-## Core Loop
-1. Create or select a Jira ticket.
-2. Clarify acceptance criteria.
-3. Ask an AI agent to implement or review a focused task.
-4. Run tests and inspect the result.
-5. Document what the AI implemented.
-6. Commit with a clear message.
+## 기본 루프
+1. Jira 티켓을 만들거나 선택한다.
+2. Acceptance criteria를 명확히 한다.
+3. AI agent에게 작고 구체적인 구현 또는 리뷰를 요청한다.
+4. 테스트를 실행하고 결과를 직접 확인한다.
+5. AI가 구현한 내용을 학습 기록으로 남긴다.
+6. 명확한 메시지로 commit한다.
 
-## Agent Roles
-- Codex: codebase work, implementation, tests, refactoring, and small documentation updates.
-- Claude Code: planning, architecture review, broader reasoning, documentation drafts, and review.
+## Agent 역할
+- Codex: 코드베이스 작업, 구현, 테스트, 리팩토링, 작은 문서 업데이트.
+- Claude Code: 기획, 아키텍처 리뷰, 넓은 설계 검토, 문서 초안, 코드 리뷰.
 
-## Rules
-- Keep product truth in shared docs, not separate AI-specific copies.
-- Keep AI prompts specific and ticket-sized.
-- Study any AI-generated technology before treating it as finished.
-- Record important decisions in `AI_DECISION_LOG.md`.
+## 규칙
+- 제품의 기준 문서는 하나로 유지하고, AI별로 서로 다른 제품 문서를 만들지 않는다.
+- AI prompt는 Jira 티켓 단위로 작고 명확하게 작성한다.
+- AI가 만든 기술은 이해하고 공부한 뒤 완료 처리한다.
+- 중요한 결정은 `AI_DECISION_LOG.md`에 기록한다.

@@ -1,35 +1,35 @@
 # Roadmap
 
-## Phase 0: Project Planning
-- Create documentation structure.
-- Define product goals and MVP scope.
-- Set Jira workflow.
-- Decide initial frontend and backend structure.
+## Phase 0: 프로젝트 기획
+- 문서 구조를 만든다.
+- 제품 목표와 MVP 범위를 정리한다.
+- Jira workflow를 정한다.
+- 프론트엔드와 백엔드 초기 구조를 결정한다.
 
-## Phase 1: Project Setup
-- Initialize React app.
-- Initialize Spring Boot app.
-- Add Docker Compose for local database.
-- Add shared conventions for commits, branches, and AI workflows.
+## Phase 1: 프로젝트 셋업
+- React 프로젝트를 생성한다.
+- Spring Boot 프로젝트를 생성한다.
+- 로컬 데이터베이스용 Docker Compose를 추가한다.
+- 커밋, 브랜치, AI 작업 규칙을 정리한다.
 
-## Phase 2: Main Chat
-- Build mobile home screen.
-- Implement chat message API.
-- Add WebSocket or polling strategy.
-- Add daily question model.
+## Phase 2: 메인 채팅
+- 모바일 홈 화면을 만든다.
+- 채팅 메시지 API를 구현한다.
+- WebSocket 또는 polling 전략을 선택한다.
+- 오늘의 질문 모델을 추가한다.
 
-## Phase 3: Synergy Review
-- Create player and champion domain models.
-- Add rating and review APIs.
-- Build mobile review UI.
+## Phase 3: 시너지 리뷰
+- 선수와 챔피언 도메인 모델을 만든다.
+- 평점과 리뷰 API를 구현한다.
+- 모바일 리뷰 UI를 만든다.
 
-## Phase 4: News
-- Integrate Naver News API.
-- Add article likes and comments.
-- Add liked articles page.
+## Phase 4: 뉴스
+- Naver News API를 연동한다.
+- 기사 좋아요와 댓글 기능을 추가한다.
+- 좋아요한 기사 페이지를 만든다.
 
-## Phase 5: Polish And Deploy
-- Add authentication.
-- Add tests.
-- Improve mobile UX.
-- Deploy frontend and backend.
+## Phase 5: 개선과 배포
+- 인증 기능을 추가한다.
+- 테스트를 추가한다.
+- 모바일 UX를 개선한다.
+- 프론트엔드와 백엔드를 배포한다.

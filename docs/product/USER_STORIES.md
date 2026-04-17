@@ -1,21 +1,21 @@
 # User Stories
 
-## Fan Discussion
-- As an LCK fan, I want to join a live chat room so that I can react with other fans during or after matches.
-- As an LCK fan, I want to answer daily match questions such as "Who was today's MVP?" so that discussion stays focused.
-- As an LCK fan, I want to see recent messages immediately so that the room feels active.
+## 팬 대화
+- LCK 팬으로서, 경기 중이나 경기 후 다른 팬들과 반응을 나누기 위해 실시간 채팅방에 참여하고 싶다.
+- LCK 팬으로서, "오늘 MVP 누구?", "패배 원인 1순위는?" 같은 오늘의 질문에 답하며 대화하고 싶다.
+- LCK 팬으로서, 최근 메시지를 즉시 확인해 채팅방이 살아 있는 느낌을 받고 싶다.
 
-## Synergy Reviews
-- As an LCK fan, I want to rate a player-champion combination out of 5 points so that I can share how strong the pairing felt.
-- As an LCK fan, I want to browse reviews by player so that I can understand player tendencies.
-- As an LCK fan, I want to browse reviews by champion so that I can compare opinions across players.
+## 시너지 리뷰
+- LCK 팬으로서, 선수-챔피언 조합을 5점 만점으로 평가해 해당 조합에 대한 의견을 남기고 싶다.
+- LCK 팬으로서, 선수별 리뷰를 조회해 특정 선수의 챔피언 선호도와 평가를 보고 싶다.
+- LCK 팬으로서, 챔피언별 리뷰를 조회해 어떤 선수가 해당 챔피언과 잘 어울리는지 비교하고 싶다.
 
-## News
-- As an LCK fan, I want to read LCK-related news in one place so that I do not need to search manually.
-- As an LCK fan, I want to like news articles so that I can save articles I care about.
-- As an LCK fan, I want to comment on news articles so that I can discuss them with other users.
-- As an LCK fan, I want to view liked articles so that I can revisit them later.
+## 뉴스
+- LCK 팬으로서, LCK 관련 뉴스를 한곳에서 확인해 직접 검색하는 시간을 줄이고 싶다.
+- LCK 팬으로서, 관심 있는 뉴스에 좋아요를 눌러 나중에 다시 보고 싶다.
+- LCK 팬으로서, 뉴스에 댓글을 남겨 다른 사용자와 의견을 나누고 싶다.
+- LCK 팬으로서, 내가 좋아요한 기사만 모아서 다시 보고 싶다.
 
-## Project Owner
-- As the developer, I want each feature to include study notes so that I understand what AI implemented.
-- As the developer, I want Jira tickets to connect with commits and documents so that the project feels like real work.
+## 프로젝트 오너
+- 개발자로서, AI가 구현한 기능마다 학습 노트를 남겨 실제로 이해한 상태로 프로젝트를 진행하고 싶다.
+- 개발자로서, Jira 티켓과 커밋, 문서를 연결해 혼자 개발하더라도 실무와 비슷한 흐름을 만들고 싶다.

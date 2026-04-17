@@ -1,19 +1,19 @@
 # Spring Boot Notes
 
-## Topics
+## 공부할 주제
 - Project structure.
-- Controller, service, repository responsibilities.
-- DTO and entity separation.
+- Controller, Service, Repository 역할.
+- DTO와 Entity 분리.
 - Validation.
 - Exception handling.
-- JPA relationships.
-- Transactions.
-- Testing APIs.
+- JPA relationship.
+- Transaction.
+- API testing.
 
 ## Running Notes
-No notes yet.
+아직 기록 없음.
 
-## Questions
-- When should chat use WebSocket instead of REST polling?
-- How should anonymous chat users be modeled before authentication?
-- How should Naver News API data be cached?
+## 질문
+- 채팅은 언제 WebSocket을 쓰고, 언제 REST polling으로 충분할까?
+- 인증 전 익명 채팅 사용자는 어떻게 모델링하는 게 좋을까?
+- Naver News API 데이터는 어느 시점에 캐싱해야 할까?

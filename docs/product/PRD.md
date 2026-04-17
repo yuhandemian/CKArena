@@ -1,26 +1,26 @@
 # CKArena PRD
 
-## Overview
-CKArena is a mobile-first LCK fan web service where users can talk during match moments, review player-champion synergy, and collect LCK news reactions in one place.
+## 개요
+CKArena는 LCK 팬들이 모바일에서 경기 흐름에 맞춰 대화하고, 선수-챔피언 시너지를 평가하며, LCK 관련 뉴스 반응을 한곳에서 확인할 수 있는 팬 커뮤니티형 웹 서비스다.
 
-## Problem
-LCK fans often spread their reactions across live chats, news comments, and community posts. CKArena aims to provide a focused space for match-day discussion and lightweight fan analysis.
+## 문제
+LCK 팬들의 반응은 실시간 채팅, 뉴스 댓글, 커뮤니티 게시글 등 여러 곳에 흩어져 있다. CKArena는 경기 당일의 대화와 가벼운 팬 분석을 한곳에 모아 더 빠르고 집중된 경험을 제공한다.
 
-## Goals
-- Provide a fast mobile experience for LCK fans.
-- Support real-time topic-based chat rooms.
-- Let users rate player-champion synergy on a 5-point scale.
-- Aggregate LCK-related news and support comments, likes, and saved liked articles.
-- Keep development traceable through Jira, documentation, and AI-assisted implementation reviews.
+## 목표
+- LCK 팬을 위한 빠른 모바일 웹 경험을 제공한다.
+- 실시간 또는 준실시간 주제 기반 채팅방을 제공한다.
+- 선수-챔피언 조합을 5점 만점으로 평가할 수 있게 한다.
+- LCK 관련 뉴스를 모아 보여주고, 댓글/좋아요/좋아요한 기사 모아보기를 지원한다.
+- Jira, 문서화, AI 구현 리뷰를 통해 실무형 개발 흐름을 만든다.
 
-## Non-Goals For MVP
-- Full esports statistics platform.
-- Official Riot or LCK data integration.
-- Complex recommendation algorithms.
-- Native mobile app.
+## MVP에서 제외할 것
+- 전문 e스포츠 통계 플랫폼 수준의 복잡한 데이터 분석.
+- 공식 Riot 또는 LCK 데이터 연동.
+- 복잡한 추천 알고리즘.
+- 네이티브 모바일 앱.
 
-## Success Criteria
-- A user can open the site on mobile and join the main chat quickly.
-- A user can browse player-champion synergy reviews.
-- A user can read LCK news, like it, comment on it, and view liked articles.
-- Each feature has a Jira ticket, implementation note, and study note.
+## 성공 기준
+- 사용자가 모바일에서 사이트를 열고 빠르게 메인 채팅에 참여할 수 있다.
+- 사용자가 선수-챔피언 시너지 리뷰를 조회할 수 있다.
+- 사용자가 LCK 뉴스를 읽고 좋아요/댓글/저장 흐름을 사용할 수 있다.
+- 주요 기능마다 Jira 티켓, 구현 기록, 학습 노트가 남는다.

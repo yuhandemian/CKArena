@@ -1,6 +1,6 @@
 # Database Schema
 
-## Draft Tables
+## 초안 Tables
 
 ## users
 - `id`
@@ -64,6 +64,6 @@
 - `content`
 - `created_at`
 
-## Notes
-- The first implementation may allow anonymous or nickname-only chat before full authentication.
-- Rating should be constrained from 1 to 5.
+## 메모
+- 첫 구현에서는 로그인 전까지 익명 또는 닉네임 기반 채팅을 허용할 수 있다.
+- 평점은 1점부터 5점까지로 제한한다.

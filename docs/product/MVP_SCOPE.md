@@ -1,39 +1,39 @@
 # MVP Scope
 
-## MVP 1: Foundation And Main Chat
-- React mobile-first frontend shell.
-- Spring Boot backend shell.
-- Basic database connection.
-- Main real-time or near-real-time chat room.
-- Daily question examples:
-  - "Who was today's MVP?"
-  - "What was the biggest reason for the loss?"
-  - "What play felt most disappointing?"
-- Basic documentation workflow.
+## MVP 1: 기반 구성과 메인 채팅
+- React 모바일 중심 프론트엔드 기본 구조를 만든다.
+- Spring Boot 백엔드 기본 구조를 만든다.
+- 로컬 데이터베이스 연결을 준비한다.
+- 메인 실시간 또는 준실시간 채팅방을 만든다.
+- 오늘의 질문 예시를 제공한다.
+  - "오늘 MVP 누구?"
+  - "패배 원인 1순위는?"
+  - "가장 아쉬운 플레이는?"
+- 기본 문서화와 AI 작업 흐름을 정한다.
 
-## MVP 2: Player-Champion Synergy Review
-- Player list.
-- Champion list.
-- Player-champion review creation.
-- 5-point rating.
-- Review list and simple filtering.
+## MVP 2: 선수-챔피언 시너지 리뷰
+- 선수 목록을 제공한다.
+- 챔피언 목록을 제공한다.
+- 선수-챔피언 리뷰를 작성할 수 있게 한다.
+- 5점 만점 평점을 지원한다.
+- 리뷰 목록과 간단한 필터링을 제공한다.
 
-## MVP 3: LCK News
-- Fetch LCK-related news through Naver API.
-- Store article metadata.
-- Like articles.
-- Comment on articles.
-- View liked articles.
+## MVP 3: LCK 뉴스
+- Naver API를 통해 LCK 관련 뉴스를 가져온다.
+- 뉴스 메타데이터를 저장한다.
+- 기사 좋아요를 지원한다.
+- 기사 댓글을 지원한다.
+- 좋아요한 기사 모아보기를 지원한다.
 
-## MVP 4: Product Hardening
-- Authentication.
-- My page.
-- Error handling.
-- Deployment.
-- Test coverage expansion.
+## MVP 4: 제품 안정화
+- 로그인/회원 기능을 추가한다.
+- 마이페이지를 추가한다.
+- 에러 처리를 정리한다.
+- 배포를 진행한다.
+- 테스트 범위를 넓힌다.
 
-## Out Of Scope For First Pass
-- Payment features.
-- Native app.
-- Advanced moderation.
-- AI-generated match analysis.
+## 첫 버전에서 제외할 것
+- 결제 기능.
+- 네이티브 앱.
+- 고급 신고/제재 시스템.
+- AI 기반 경기 분석.
