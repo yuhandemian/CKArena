@@ -3,6 +3,8 @@
 ## 목적
 이 프로젝트는 AI agent를 개발 파트너로 사용하지만, 최종 결정과 이해, 테스트, 품질 책임은 개발자가 가진다.
 
+더 자세한 Harness Engineering 방식과 면접 답변용 정리는 [`HARNESS_ENGINEERING.md`](HARNESS_ENGINEERING.md)를 기준 문서로 사용한다.
+
 ## 기본 루프
 1. Jira 티켓을 만들거나 선택한다.
 2. Acceptance criteria를 명확히 한다.
