@@ -29,11 +29,36 @@ git checkout -b feature/CKAR-X-short-description
 git commit -m "CKAR-X 작업 내용 요약"
 
 # 3. PR 생성 (제목에 CKAR-X 포함)
-gh pr create --title "CKAR-X 작업 내용 요약" ...
+# .github/pull_request_template.md가 자동으로 body에 로드됨
+# "Closes #이슈번호" 를 채우면 merge 시 이슈 자동 close
+gh pr create --title "CKAR-X 작업 내용 요약"
 
-# 4. PR merge 후 브랜치 삭제, 이슈 close
-gh issue close <issue-number>
+# 4. PR merge → 이슈 자동 close (별도 작업 불필요)
 ```
+
+## PR 템플릿 사용법
+
+PR을 생성하면 `.github/pull_request_template.md`가 body에 자동으로 로드된다.
+**`Closes #이슈번호`** 를 채워서 PR을 올리면 merge 시 해당 이슈가 자동으로 닫힌다.
+
+```markdown
+## Jira Epic
+CKAR-3
+
+## Summary
+- WebSocket 채팅 Controller 구현
+- STOMP 메시지 broadcast 연결
+
+## Test plan
+- [ ] /ws 엔드포인트 연결 확인
+- [ ] 메시지 송수신 확인
+
+## Closes
+Closes #7
+Closes #8
+```
+
+여러 이슈를 닫으려면 `Closes #` 줄을 여러 개 추가하면 된다.
 
 ## gh CLI로 이슈 생성하기
 
