@@ -6,7 +6,7 @@
 - Spring Web (REST API)
 - Spring WebSocket + STOMP (실시간 채팅)
 - Spring Data JPA
-- Database: PostgreSQL 또는 MySQL
+- Database: MySQL
 - Spring Scheduler (`@Scheduled`): 뉴스 주기적 수집
 
 ## 추천 구조
