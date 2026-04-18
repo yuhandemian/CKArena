@@ -27,3 +27,4 @@ feature/CKAR-123-short-description
 bugfix/CKAR-456-short-description
 docs/CKAR-789-short-description
 ```
+
