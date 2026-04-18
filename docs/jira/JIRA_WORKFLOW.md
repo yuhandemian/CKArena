@@ -49,3 +49,4 @@ CKAR-123 short imperative summary
 CKAR-3 implement WebSocket chat
 CKAR-1 align planning docs with Jira workflow
 ```
+
