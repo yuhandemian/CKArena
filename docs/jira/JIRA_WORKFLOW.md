@@ -23,7 +23,7 @@
 
 ## Branch Naming
 ```text
-feature/CKA-123-short-description
-bugfix/CKA-456-short-description
-docs/CKA-789-short-description
+feature/CKAR-123-short-description
+bugfix/CKAR-456-short-description
+docs/CKAR-789-short-description
 ```

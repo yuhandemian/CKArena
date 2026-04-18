@@ -1,15 +1,15 @@
 # Epics And Tasks
 
 ## Epics
-- CKA-EPIC-1: Project Setup
-- CKA-EPIC-2: Mobile Frontend Shell
-- CKA-EPIC-3: Main Live Chat
-- CKA-EPIC-4: Player-Champion Synergy Review
-- CKA-EPIC-5: LCK News
-- CKA-EPIC-6: Likes, Comments, And Saved Articles
-- CKA-EPIC-7: Authentication
-- CKA-EPIC-8: AI Study Documentation
-- CKA-EPIC-9: Deployment
+- CKAR-EPIC-1: Project Setup
+- CKAR-EPIC-2: Mobile Frontend Shell
+- CKAR-EPIC-3: Main Live Chat
+- CKAR-EPIC-4: Player-Champion Synergy Review
+- CKAR-EPIC-5: LCK News
+- CKAR-EPIC-6: Likes, Comments, And Saved Articles
+- CKAR-EPIC-7: Authentication
+- CKAR-EPIC-8: AI Study Documentation
+- CKAR-EPIC-9: Deployment
 
 ## 첫 후보 Tasks
 - React frontend project 생성.
