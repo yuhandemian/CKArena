@@ -1,15 +1,17 @@
 # Epics And Tasks
 
 ## Epics
-- CKAR-EPIC-1: Project Setup
-- CKAR-EPIC-2: Mobile Frontend Shell
-- CKAR-EPIC-3: Main Live Chat
-- CKAR-EPIC-4: Player-Champion Synergy Review
-- CKAR-EPIC-5: LCK News
-- CKAR-EPIC-6: Likes, Comments, And Saved Articles
-- CKAR-EPIC-7: Authentication
-- CKAR-EPIC-8: AI Study Documentation
-- CKAR-EPIC-9: Deployment
+- CKAR-1: Project Setup
+- CKAR-2: Mobile Frontend Shell
+- CKAR-3: Main Live Chat
+- CKAR-4: Player-Champion Synergy Review
+- CKAR-5: LCK News
+- CKAR-6: Likes, Comments, And Saved Articles
+- CKAR-7: Authentication
+- CKAR-8: AI Study Documentation
+- CKAR-9: Deployment
+
+실제 Jira issue key가 변경되면 이 목록을 Jira 기준으로 업데이트한다.
 
 ## 첫 후보 Tasks
 - React frontend project 생성.

@@ -21,7 +21,7 @@ Follow-up:
 - Reason: 제품 기준은 하나여야 하지만, AI 도구마다 맡기는 역할은 달라질 수 있기 때문이다.
 
 ### 2026-04-19: 채팅 실시간 방식 — WebSocket(STOMP) 선택
-- Decision: 채팅 실시간 연결 방식으로 polling이 아닌 WebSocket(STOMP over SockJS)을 사용한다.
+- Decision: 채팅 실시간 연결 방식으로 polling이 아닌 WebSocket(STOMP over native WebSocket)을 사용한다.
 - Context: CKArena의 메인 채팅은 경기 중 실시간 팬 반응을 모으는 기능이다. 경기 당일에는 짧은 시간 동안 메시지가 집중적으로 발생한다.
 - Options:
   - Short polling (30초): 구현 단순. 메시지 지연 최대 30초. 경기 중 팬 반응에는 체감이 느림. 동시 사용자 증가 시 서버에 불필요한 요청이 반복된다.
@@ -44,7 +44,13 @@ Follow-up:
 - Follow-up: 향후 경기 일정 API 연동 시 자동 생성으로 전환 고려.
 
 ### 2026-04-19: MVP 인증 전략
-- Decision: MVP 1~3은 닉네임 기반 게스트 세션 토큰 방식을 사용한다. MVP 4에서 이메일 기반 정식 인증으로 전환한다.
+- Decision: MVP 1~3은 닉네임 기반 게스트 세션 토큰 방식을 사용한다. 단, 게스트도 `users` 테이블에 `GUEST` 사용자로 저장하고, 토큰은 `guest_sessions`가 `user_id`를 참조한다. MVP 4에서 `MEMBER` 사용자와 이메일 기반 정식 인증으로 확장한다.
 - Context: 초기 사용자 유입을 낮추기 위해 회원가입 없이 채팅 참여가 가능해야 한다.
-- Reason: 게스트 세션은 `guest_sessions` 테이블 하나로 구현 가능하며, 정식 인증 전환 시 `users` 테이블로 대체하면 된다. 초기부터 JWT 인증을 구현하면 Auth 자체가 MVP 병목이 된다.
-- Follow-up: MVP 4에서 Spring Security + JWT로 전환. `guest_sessions` 테이블 제거.
+- Reason: 리뷰, 좋아요, 댓글도 작성자 식별이 필요하므로 MVP 1~3부터 모든 도메인이 동일하게 `user_id`를 참조하는 편이 단순하다. `guest_sessions`만으로 사용자를 표현하면 MVP 4 정식 인증 전환 시 데이터 마이그레이션이 복잡해진다. 초기부터 이메일/비밀번호 인증을 구현하면 Auth 자체가 MVP 병목이 된다.
+- Follow-up: MVP 4에서 Spring Security + JWT로 전환. 기존 `GUEST` 사용자를 `MEMBER`로 승격하거나 새 `MEMBER` 사용자와 연결하는 정책을 결정한다.
+
+### 2026-04-19: AI agent 역할 조정
+- Decision: Claude Code를 메인 구현/설계 검토 도구로 사용하고, Codex는 보조 구현과 정합성 검토 도구로 사용한다.
+- Context: Claude Code는 `/advisor` 기능을 통해 작업 중 중요한 순간에 더 강한 모델의 조언을 받을 수 있다.
+- Reason: 주요 구현과 설계 판단은 더 강한 검토 루프를 가진 Claude Code에 맡기고, Codex는 문서/테스트/코드 정합성을 확인하는 보조 검토자로 두는 편이 Harness Layer의 검증 구조와 잘 맞는다.
+- Follow-up: `AI_WORKFLOW.md`, `HARNESS_ENGINEERING.md`, `CODEX_GUIDE.md`, `CLAUDE_CODE_GUIDE.md`의 역할 설명을 이 기준으로 유지한다.

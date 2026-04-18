@@ -3,7 +3,7 @@
 ## 목적
 CKArena에서 AI를 활용하는 핵심 기준은 "AI가 만든 결과물을 그대로 믿지 않고, 검증 가능한 구조 안에서 받아들인다"는 것이다.
 
-이 문서는 Codex와 Claude Code를 개발에 사용할 때 어떤 기준으로 Context를 제공하고, 어떤 규칙 안에서 실행시키며, 어떤 방식으로 결과물을 검증할지 정리한다. 면접에서 "AI를 학습이나 개발에 활용한 경험이 있다면, 어떤 기준으로 받아들이고 검증했는지 설명해주세요."라는 질문을 받았을 때 답변의 근거가 되는 문서이기도 하다.
+이 문서는 Claude Code와 Codex를 개발에 사용할 때 어떤 기준으로 Context를 제공하고, 어떤 규칙 안에서 실행시키며, 어떤 방식으로 결과물을 검증할지 정리한다. 면접에서 "AI를 학습이나 개발에 활용한 경험이 있다면, 어떤 기준으로 받아들이고 검증했는지 설명해주세요."라는 질문을 받았을 때 답변의 근거가 되는 문서이기도 하다.
 
 ## 기본 관점
 AI는 정답 생성기가 아니라 빠르게 초안을 만들고 대안을 제안하는 개발 보조 도구로 사용한다.
@@ -75,8 +75,8 @@ AI는 실제 프로젝트 도구 위에서 작업하지만, 도구 사용 결과
 ## 4. Rules / Policies: AI에게 적용하는 작업 규칙
 AI 도구마다 역할과 기대치를 분리해 사용한다.
 
-- `docs/ai/CODEX_GUIDE.md`: Codex는 구현, 테스트, 리팩토링, 코드베이스 수정에 주로 사용한다.
-- `docs/ai/CLAUDE_CODE_GUIDE.md`: Claude Code는 설계 검토, 문서화, 큰 방향 리뷰에 주로 사용한다.
+- `docs/ai/CLAUDE_CODE_GUIDE.md`: Claude Code는 메인 구현, 설계 검토, 문서화, 핵심 판단에 주로 사용한다.
+- `docs/ai/CODEX_GUIDE.md`: Codex는 보조 구현, 테스트/문서 정합성 확인, 코드 검토에 주로 사용한다.
 - `docs/jira/JIRA_WORKFLOW.md`: Jira 티켓 상태와 Done Definition을 기준으로 작업 완료 여부를 판단한다.
 
 중요한 규칙은 다음과 같다.
@@ -138,8 +138,8 @@ CKArena의 AI-assisted development는 다음 흐름을 따른다.
         |
         v
 [AI Agent Usage]
-- Claude Code: 설계, 리뷰, 문서화
-- Codex: 구현, 테스트, 리팩토링
+- Claude Code: 메인 구현, 설계, 리뷰, 문서화, `/advisor` 활용
+- Codex: 보조 구현, 테스트, 정합성 검토, 리팩토링
 
         |
         v
@@ -169,17 +169,39 @@ CKArena의 AI-assisted development는 다음 흐름을 따른다.
 - Jira 상태 업데이트
 ```
 
-## Codex와 Claude Code 역할 분담
+## Claude Code와 Codex 역할 분담
+
+## Claude Code
+Claude Code는 repository 안에서 주요 구현과 설계 판단을 진행하는 메인 개발 도구로 사용한다. 복잡한 설계 판단이나 중요한 구현 전환점에서는 `/advisor` 기능을 사용해 더 강한 모델의 조언을 참고한다.
+
+- Jira 티켓 단위 주요 구현.
+- API/DB/도메인 모델링 검토.
+- 구현 전 tradeoff 정리.
+- `/advisor`를 활용한 핵심 판단 보강.
+- 문서와 코드 변경 동기화.
+- Codex 보조 검토 결과 반영 여부 판단.
+
+Claude Code에게 요청할 때는 다음 요소를 포함한다.
+
+```text
+Context:
+Ticket:
+Decision needed:
+Current constraints:
+Options considered:
+Review focus:
+Output format:
+```
 
 ## Codex
-Codex는 repository 안에서 실제 구현과 검증을 진행하는 실행 중심 도구로 사용한다.
+Codex는 Claude Code가 메인으로 만든 구현을 보조하고, 테스트/문서/코드 정합성을 검토하는 도구로 사용한다.
 
 - 기존 코드 구조 파악.
-- Jira 티켓 단위 구현.
+- 작은 범위의 보조 구현.
 - 테스트 추가와 실행.
-- 작은 refactoring.
-- 문서와 코드 변경 동기화.
-- commit 전 변경사항 요약.
+- 문서와 코드의 불일치 확인.
+- API/DB 계약 위반 여부 검토.
+- commit 전 변경사항과 검증 결과 요약.
 
 Codex에게 요청할 때는 다음 요소를 포함한다.
 
@@ -191,26 +213,6 @@ Context docs:
 Files or area to inspect:
 Constraints:
 Verification:
-```
-
-## Claude Code
-Claude Code는 넓은 설계와 리뷰, 문서화에 강점을 두고 사용한다.
-
-- 기능을 Epic, Story, Task로 분해.
-- API/DB/도메인 모델링 검토.
-- 구현 전 tradeoff 정리.
-- Codex가 만든 코드의 설계 관점 리뷰.
-- 면접 답변, 회고, 학습 문서 정리.
-
-Claude Code에게 요청할 때는 다음 요소를 포함한다.
-
-```text
-Context:
-Decision needed:
-Current constraints:
-Options considered:
-Review focus:
-Output format:
 ```
 
 ## AI 결과물을 받아들이는 기준
@@ -251,9 +253,9 @@ AI가 모바일 채팅 화면을 구현했다면 다음 순서로 검증한다.
 ```text
 AI를 사용할 때 가장 중요하게 둔 기준은 결과물을 바로 신뢰하지 않고, 검증 가능한 작업 단위 안에서 사용한다는 것이었습니다.
 
-개인 프로젝트인 CKArena에서는 이 방식을 Harness Engineering에 가깝게 적용했습니다. 먼저 PRD, MVP_SCOPE, API_DESIGN, DATABASE_SCHEMA 같은 문서를 만들어 AI가 참고할 Context를 고정했습니다. 그리고 Jira 티켓 단위로 작업을 쪼개 목표와 Acceptance Criteria를 명확히 한 뒤 Codex나 Claude Code에 요청했습니다.
+개인 프로젝트인 CKArena에서는 이 방식을 Harness Engineering에 가깝게 적용했습니다. 먼저 PRD, MVP_SCOPE, API_DESIGN, DATABASE_SCHEMA 같은 문서를 만들어 AI가 참고할 Context를 고정했습니다. 그리고 Jira 티켓 단위로 작업을 쪼개 목표와 Acceptance Criteria를 명확히 한 뒤 Claude Code나 Codex에 요청했습니다.
 
-Codex는 주로 구현과 테스트에 사용했고, Claude Code는 설계 검토와 문서화에 사용했습니다. AI가 만든 코드는 바로 반영하지 않고, 기존 문서와 맞는지, API 설계와 DB 설계에서 벗어나지 않는지, 테스트나 수동 검증을 통과하는지 확인했습니다. 또 제가 모르는 기술이 들어가면 AI_IMPLEMENTATION_REVIEW나 학습 노트에 정리해서 왜 그렇게 구현됐는지 다시 공부했습니다.
+Claude Code는 `/advisor` 기능까지 활용할 수 있어 주요 구현과 설계 판단에 사용했고, Codex는 보조 구현과 코드/문서 정합성 검토에 사용했습니다. AI가 만든 코드는 바로 반영하지 않고, 기존 문서와 맞는지, API 설계와 DB 설계에서 벗어나지 않는지, 테스트나 수동 검증을 통과하는지 확인했습니다. 또 제가 모르는 기술이 들어가면 AI_IMPLEMENTATION_REVIEW나 학습 노트에 정리해서 왜 그렇게 구현됐는지 다시 공부했습니다.
 
 그래서 제 기준은 AI를 정답 생성기로 쓰는 것이 아니라, 문서, Jira, 테스트, 코드 리뷰, 학습 기록으로 구성된 Harness Layer 안에서 통제하고 검증하는 것이었습니다.
 ```

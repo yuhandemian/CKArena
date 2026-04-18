@@ -15,7 +15,7 @@
 ## Phase 2: 메인 채팅
 - 모바일 홈 화면을 만든다.
 - 채팅 메시지 API를 구현한다.
-- WebSocket 또는 polling 전략을 선택한다.
+- WebSocket(STOMP) 기반 채팅 연결을 구현한다.
 - 오늘의 질문 모델을 추가한다.
 
 ## Phase 3: 시너지 리뷰

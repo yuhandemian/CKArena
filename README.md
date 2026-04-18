@@ -42,8 +42,10 @@ CKArena에서 Harness Layer는 다음 기준으로 구성합니다.
 - Context: `docs/product`, `docs/architecture`
 - Memory: `AI_DECISION_LOG`, `PROMPT_LOG`, `STUDY_NOTES`
 - Tools: React, Spring Boot, DB, Naver API, Git
-- Rules / Policies: `CODEX_GUIDE`, `CLAUDE_CODE_GUIDE`, `JIRA_WORKFLOW`
+- Rules / Policies: `CLAUDE_CODE_GUIDE`, `CODEX_GUIDE`, `JIRA_WORKFLOW`
 - Test / CI: backend test, frontend test, manual API check, 추후 GitHub Actions
 - Feedback Loop: `AI_IMPLEMENTATION_REVIEW`, Jira Code Review 상태
+
+AI agent 역할은 Claude Code를 메인 구현/설계 검토 도구로 두고, Codex는 보조 구현과 코드/문서 정합성 검토에 사용합니다. Claude Code는 중요한 판단이 필요한 순간 `/advisor`로 더 강한 모델의 조언을 참고합니다.
 
 자세한 AI 활용 기준과 면접 답변용 정리는 [`docs/ai/HARNESS_ENGINEERING.md`](docs/ai/HARNESS_ENGINEERING.md)에 기록합니다.

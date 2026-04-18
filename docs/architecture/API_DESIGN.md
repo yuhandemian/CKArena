@@ -4,10 +4,10 @@
 
 MVP 1에서는 회원가입/로그인 없이 채팅에 참여할 수 있도록 **닉네임 기반 세션 토큰** 방식을 사용한다.
 
-1. 사용자가 닉네임을 입력하면 서버가 `session_token`을 발급한다.
-2. 이후 모든 쓰기 요청은 `Authorization: Bearer <session_token>` 헤더를 포함한다.
-3. 토큰은 서버 메모리(또는 DB)에 저장하며, 닉네임과 매핑한다.
-4. MVP 4에서 이메일/비밀번호 기반 정식 인증으로 전환한다.
+1. 사용자가 닉네임을 입력하면 서버가 `users` 테이블에 `GUEST` 사용자를 생성한다.
+2. 서버는 `guest_sessions`에 `user_id`와 `session_token`을 저장한 뒤 토큰을 발급한다.
+3. 이후 모든 쓰기 요청은 `Authorization: Bearer <session_token>` 헤더를 포함한다.
+4. MVP 4에서 `MEMBER` 사용자와 이메일/비밀번호 기반 정식 인증으로 확장한다.
 
 ```
 POST /api/auth/guest
@@ -28,7 +28,9 @@ Response: { "sessionToken": "...", "nickname": "Faker팬123" }
 - `GET /api/chat/rooms/{roomId}/messages?page=0&size=50`: 최근 메시지 조회 (페이지네이션).
 - `POST /api/chat/rooms/{roomId}/messages`: 메시지 작성 (인증 필요).
 - `GET /api/chat/daily-question`: 오늘의 질문 조회.
-- **WebSocket** `ws://host/ws/chat/{roomId}`: 실시간 채팅 연결 (STOMP over WebSocket).
+- **WebSocket** `ws://host/ws`: STOMP 연결 endpoint.
+- **STOMP subscribe** `/topic/chat/{roomId}`: 실시간 채팅 메시지 구독.
+- **STOMP send** `/app/chat/{roomId}/send`: 실시간 채팅 메시지 전송.
 
 ## Synergy Reviews
 - `GET /api/players`: 선수 목록 조회.
