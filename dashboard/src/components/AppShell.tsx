@@ -4,7 +4,6 @@ import type { PageId } from '../App';
 const navItems: Array<{ id: PageId; label: string; detail: string }> = [
   { id: 'overview', label: 'Overview', detail: '프로젝트 요약' },
   { id: 'roadmap', label: 'Roadmap', detail: 'MVP 진행 흐름' },
-  { id: 'harness', label: 'Harness', detail: 'AI 검증 구조' },
   { id: 'decisions', label: 'Decisions', detail: '의사결정 기록' },
 ];
 
