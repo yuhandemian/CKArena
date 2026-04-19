@@ -60,6 +60,64 @@ Closes #8
 
 여러 이슈를 닫으려면 `Closes #` 줄을 여러 개 추가하면 된다.
 
+## Merge된 브랜치에 후속 커밋이 생겼을 때
+
+Claude Code와 Codex가 순차적으로 작업하다 보면 이미 merge된 feature branch에 후속 커밋이 추가될 수 있다.
+
+예:
+1. Claude Code가 `feature/CKAR-1-project-setup`에서 구현한다.
+2. PR이 squash merge된다.
+3. 같은 브랜치에 Codex가 보조 검토/학습 문서 커밋을 추가한다.
+4. 이 브랜치로 다시 PR을 만들면 이미 merge된 기본 세팅 변경까지 diff에 다시 잡힐 수 있다.
+
+이 경우 기존 브랜치로 PR을 만들지 않고, `origin/main` 기준 새 브랜치를 만든 뒤 필요한 후속 커밋만 cherry-pick한다.
+
+### 확인 명령
+
+```bash
+git fetch origin
+git log --oneline --graph --decorate --all -12
+git diff --stat origin/main...HEAD
+git log --oneline origin/main..HEAD
+```
+
+아래 상황이면 새 브랜치 + cherry-pick을 사용한다.
+
+- 이전 PR이 이미 merge됐다.
+- `git diff origin/main...HEAD`에 이미 merge된 변경까지 다시 보인다.
+- 새 PR에 포함할 변경이 일부 후속 커밋뿐이다.
+
+### 처리 절차
+
+```bash
+# 1. origin/main 기준 새 브랜치 생성
+git checkout -b docs/CKAR-1-test-slice-learning origin/main
+
+# 2. 필요한 후속 커밋만 cherry-pick
+git cherry-pick <commit-sha>
+
+# 여러 커밋이면 순서대로 적용
+git cherry-pick <commit-sha-1> <commit-sha-2>
+
+# 3. PR에 포함될 diff 확인
+git diff --stat origin/main...HEAD
+
+# 4. 필요한 검증 실행
+./gradlew test
+npm run build
+
+# 5. push 후 PR 생성
+git push -u origin docs/CKAR-1-test-slice-learning
+gh pr create --base main --head docs/CKAR-1-test-slice-learning
+```
+
+### 주의 사항
+
+- 이미 merge된 브랜치에 계속 후속 작업을 쌓지 않는다.
+- 새 PR은 실제 필요한 변경만 포함해야 한다.
+- `git reset --hard`, force push는 사용자 명시 허가 없이 사용하지 않는다.
+- PR 제목과 커밋 메시지에는 Jira 연동을 위해 `CKAR-*` 키를 포함한다.
+
 ## gh CLI로 이슈 생성하기
 
 ### 단일 이슈 생성
