@@ -15,40 +15,43 @@ Body: { "nickname": "Faker팬123" }
 Response: { "sessionToken": "...", "nickname": "Faker팬123" }
 ```
 
+## System
+- `GET /api/health` [구현됨]: 서버 상태 확인.
+
 ## 초안 Endpoints
 
 ## Auth
-- `POST /api/auth/guest`: 닉네임으로 임시 세션 토큰 발급.
-- `POST /api/auth/register`: 회원가입 (MVP 4).
-- `POST /api/auth/login`: 로그인 (MVP 4).
+- `POST /api/auth/guest` [예정]: 닉네임으로 임시 세션 토큰 발급.
+- `POST /api/auth/register` [예정]: 회원가입 (MVP 4).
+- `POST /api/auth/login` [예정]: 로그인 (MVP 4).
 
 ## Chat
-- `GET /api/chat/rooms`: 채팅방 목록 조회.
-- `POST /api/chat/rooms`: 채팅방 생성 (관리자 또는 서버 자동 생성용).
-- `GET /api/chat/rooms/{roomId}/messages?page=0&size=50`: 최근 메시지 조회 (페이지네이션).
-- `POST /api/chat/rooms/{roomId}/messages`: 메시지 작성 (인증 필요).
-- `GET /api/chat/daily-question`: 오늘의 질문 조회.
+- `GET /api/chat/rooms` [예정]: 채팅방 목록 조회.
+- `POST /api/chat/rooms` [예정]: 채팅방 생성 (관리자 또는 서버 자동 생성용).
+- `GET /api/chat/rooms/{roomId}/messages` [예정]: 최근 메시지 조회 (페이지네이션).
+- `POST /api/chat/rooms/{roomId}/messages` [예정]: 메시지 작성 (인증 필요).
+- `GET /api/chat/daily-question` [예정]: 오늘의 질문 조회.
 - **WebSocket** `ws://host/ws`: STOMP 연결 endpoint.
 - **STOMP subscribe** `/topic/chat/{roomId}`: 실시간 채팅 메시지 구독.
 - **STOMP send** `/app/chat/{roomId}/send`: 실시간 채팅 메시지 전송.
 
 ## Synergy Reviews
-- `GET /api/players`: 선수 목록 조회.
-- `GET /api/champions`: 챔피언 목록 조회.
-- `GET /api/synergy-reviews?page=0&size=20`: 리뷰 목록 조회.
-- `POST /api/synergy-reviews`: 리뷰 작성 (인증 필요, 동일 조합 중복 불가).
-- `PUT /api/synergy-reviews/{reviewId}`: 리뷰 수정 (본인만 가능).
-- `GET /api/synergy-reviews/players/{playerId}?page=0&size=20`: 선수별 리뷰 조회.
-- `GET /api/synergy-reviews/champions/{championId}?page=0&size=20`: 챔피언별 리뷰 조회.
+- `GET /api/players` [예정]: 선수 목록 조회.
+- `GET /api/champions` [예정]: 챔피언 목록 조회.
+- `GET /api/synergy-reviews` [예정]: 리뷰 목록 조회.
+- `POST /api/synergy-reviews` [예정]: 리뷰 작성 (인증 필요, 동일 조합 중복 불가).
+- `PUT /api/synergy-reviews/{reviewId}` [예정]: 리뷰 수정 (본인만 가능).
+- `GET /api/synergy-reviews/players/{playerId}` [예정]: 선수별 리뷰 조회.
+- `GET /api/synergy-reviews/champions/{championId}` [예정]: 챔피언별 리뷰 조회.
 
 ## News
-- `GET /api/news?page=0&size=20`: LCK 뉴스 목록 조회.
-- `POST /api/news/{newsId}/likes`: 뉴스 좋아요 (인증 필요).
-- `DELETE /api/news/{newsId}/likes`: 뉴스 좋아요 취소 (인증 필요).
-- `GET /api/news/liked?page=0&size=20`: 좋아요한 기사 목록 조회 (인증 필요).
-- `GET /api/news/{newsId}/comments?page=0&size=20`: 댓글 목록 조회.
-- `POST /api/news/{newsId}/comments`: 댓글 작성 (인증 필요).
-- `POST /api/admin/news/fetch`: 뉴스 수동 수집 트리거 (관리자용).
+- `GET /api/news` [예정]: LCK 뉴스 목록 조회.
+- `POST /api/news/{newsId}/likes` [예정]: 뉴스 좋아요 (인증 필요).
+- `DELETE /api/news/{newsId}/likes` [예정]: 뉴스 좋아요 취소 (인증 필요).
+- `GET /api/news/liked` [예정]: 좋아요한 기사 목록 조회 (인증 필요).
+- `GET /api/news/{newsId}/comments` [예정]: 댓글 목록 조회.
+- `POST /api/news/{newsId}/comments` [예정]: 댓글 작성 (인증 필요).
+- `POST /api/admin/news/fetch` [예정]: 뉴스 수동 수집 트리거 (관리자용).
 
 ## 에러 응답 형식
 
