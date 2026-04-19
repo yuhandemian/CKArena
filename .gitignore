@@ -10,6 +10,11 @@ backend/*.class
 frontend/node_modules/
 frontend/dist/
 
+# Dashboard
+dashboard/node_modules/
+dashboard/dist/
+dashboard/src/data/generated/*.json
+
 # IDE
 .idea/
 *.iml
