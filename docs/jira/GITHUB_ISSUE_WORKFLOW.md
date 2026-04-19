@@ -41,15 +41,21 @@ gh pr create --title "CKAR-X 작업 내용 요약"
 PR을 생성하면 `.github/pull_request_template.md`가 body에 자동으로 로드된다.
 **`Closes #이슈번호`** 를 채워서 PR을 올리면 merge 시 해당 이슈가 자동으로 닫힌다.
 
+PR 제목과 본문은 한국어를 기본으로 작성한다. 단, 기술명, 명령어, API, 클래스명, 파일명은 영어 또는 원문 표기를 유지한다.
+
 ```markdown
 ## Jira Epic
 CKAR-3
 
-## Summary
+## 작성 규칙
+- [x] PR 제목과 본문은 한국어를 기본으로 작성했습니다.
+- [x] 기술명, 명령어, API, 클래스명, 파일명은 영어/원문 표기를 유지했습니다.
+
+## 요약
 - WebSocket 채팅 Controller 구현
 - STOMP 메시지 broadcast 연결
 
-## Test plan
+## 검증
 - [ ] /ws 엔드포인트 연결 확인
 - [ ] 메시지 송수신 확인
 
