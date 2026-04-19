@@ -1,4 +1,3 @@
-import heroImage from '../assets/hero.png';
 import { MetricCard } from '../components/MetricCard';
 import { SectionHeader } from '../components/SectionHeader';
 import type { DashboardData } from '../types';
@@ -21,7 +20,6 @@ export function OverviewPage({ data }: OverviewPageProps) {
           <p>{data.overview.tagline}</p>
           <strong>{data.overview.sourcePrinciple}</strong>
         </div>
-        <img src={heroImage} alt="CKArena dashboard visual" />
       </div>
 
       <div className="metric-grid">
