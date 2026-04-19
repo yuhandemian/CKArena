@@ -227,6 +227,27 @@ AI가 만든 결과물은 다음 기준을 만족할 때만 반영한다.
 7. 내가 모르는 기술이 들어갔다면 학습 노트에 정리했고, 왜 필요한지 설명할 수 있다.
 8. 변경사항이 Git commit으로 남고, 필요하면 Jira 상태가 업데이트된다.
 
+## AI 협업 중 브랜치 정합성 규칙
+
+Claude Code와 Codex가 같은 Jira Epic 안에서 순차적으로 작업하면, 이미 merge된 브랜치에 후속 커밋이 쌓이는 상황이 생길 수 있다. 특히 PR이 squash merge된 뒤 같은 feature branch에 Codex가 학습 문서나 보조 수정 커밋을 추가하면, 새 PR에서 이미 main에 반영된 변경까지 다시 diff에 잡힐 수 있다.
+
+이 경우 기존 브랜치를 그대로 재사용하지 않는다. `origin/main` 기준으로 새 브랜치를 만들고, 실제로 새 PR에 포함할 후속 커밋만 cherry-pick한다.
+
+판단 기준:
+- 현재 브랜치의 이전 PR이 이미 merge됐다.
+- `git diff origin/main...HEAD`에 이미 merge된 변경까지 다시 보인다.
+- 새 PR에 포함하고 싶은 변경은 일부 후속 커밋뿐이다.
+- Claude Code와 Codex가 같은 이슈를 순차적으로 작업해 브랜치 이력이 섞였다.
+
+원칙:
+- 새 PR은 `origin/main` 기준에서 실제 필요한 변경만 포함한다.
+- 이미 merge된 브랜치에 후속 작업을 계속 쌓지 않는다.
+- cherry-pick 전후로 `git diff --stat origin/main...HEAD`를 확인한다.
+- 사용자 명시 허가 없이 `git reset --hard`, force push 같은 파괴적 명령을 사용하지 않는다.
+- PR 제목과 커밋 메시지에는 `CKAR-*` 키를 포함한다.
+
+이 규칙은 AI agent 협업에서 PR 단위를 작고 검증 가능하게 유지하기 위한 Harness Layer의 일부다.
+
 ## 예시: Spring Boot API 구현 검증
 AI가 채팅 메시지 API를 구현했다면 다음 순서로 검증한다.
 
