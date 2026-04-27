@@ -28,8 +28,8 @@ Response: { "sessionToken": "...", "nickname": "Faker팬123" }
 ## Chat
 - `GET /api/chat/rooms` [구현됨]: 채팅방 목록 조회.
 - `POST /api/chat/rooms` [구현됨]: 채팅방 생성 (관리자 전용).
-- `GET /api/chat/rooms/{roomId}/messages` [예정]: 최근 메시지 조회 (페이지네이션).
-- `POST /api/chat/rooms/{roomId}/messages` [예정]: 메시지 작성 (인증 필요).
+- `GET /api/chat/rooms/{roomId}/messages` [구현됨]: 최근 메시지 조회 (page/size 페이지네이션).
+- `POST /api/chat/rooms/{roomId}/messages` [구현됨]: 메시지 작성 (인증 필요).
 - `GET /api/chat/daily-question` [예정]: 오늘의 질문 조회.
 - **WebSocket** `ws://host/ws`: STOMP 연결 endpoint.
 - **STOMP subscribe** `/topic/chat/{roomId}`: 실시간 채팅 메시지 구독.
