@@ -21,7 +21,7 @@ Response: { "sessionToken": "...", "nickname": "Faker팬123" }
 ## 초안 Endpoints
 
 ## Auth
-- `POST /api/auth/guest` [예정]: 닉네임으로 임시 세션 토큰 발급.
+- `POST /api/auth/guest` [구현됨]: 닉네임으로 임시 세션 토큰 발급.
 - `POST /api/auth/register` [예정]: 회원가입 (MVP 4).
 - `POST /api/auth/login` [예정]: 로그인 (MVP 4).
 
